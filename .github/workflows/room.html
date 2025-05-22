@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Room Module - Hotel Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --pink: #d95f76;
+      --light-pink: #ffe3e9;
+      --dark-pink: #f4a8b1;
+      --white: #ffffff;
+      --gray: #f8f9fa;
+    }
+    body {
+      background-color: var(--gray);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .sidebar {
+      background-color: var(--pink);
+      min-height: 100vh;
+      color: white;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: var(--dark-pink);
+    }
+    .navbar {
+      background-color: var(--white);
+      border-bottom: 1px solid #ddd;
+    }
+    .btn-pink {
+      background-color: var(--pink);
+      color: white;
+    }
+    .btn-pink:hover {
+      background-color: var(--dark-pink);
+      color: white;
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: var(--light-pink);
+    }
+    .sidebar .nav-link.active {
+      background-color: var(--dark-pink);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-2 d-none d-md-block sidebar py-4">
+        <div class="text-center mb-4">
+          <h4><i class="fas fa-hotel me-2"></i>Hotel Admin</h4>
+        </div>
+        <ul class="nav flex-column px-3">
+          <li class="nav-item mb-2">
+            <a class="nav-link " href="index.html"><i class="fas fa-bed me-2"></i>Dashboard</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a class="nav-link active" href="room.html"><i class="fas fa-bed me-2"></i>Room Module</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a class="nav-link" href="amenities.html"><i class="fas fa-spa me-2"></i>Amenities Module</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a class="nav-link" href="transaction.html"><i class="fas fa-credit-card me-2"></i>Transaction Module</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-10 ms-sm-auto col-lg-10 px-md-5 py-4">
+        <nav class="navbar mb-4">
+          <span class="navbar-brand mb-0 h1">Room Module</span>
+          <button class="btn btn-outline-secondary"><i class="fas fa-user-circle"></i> Admin</button>
+        </nav>
+
+        <!-- Add Room Button -->
+        <div class="mb-3 d-flex justify-content-between">
+          <h4>Manage Rooms</h4>
+          <button class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#addRoomModal"><i class="fas fa-plus"></i> Add Room</button>
+        </div>
+
+        <!-- Room Table -->
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Room No</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101</td>
+                <td>Single</td>
+                <td><span class="badge bg-success">Available</span></td>
+                <td>$80</td>
+                <td>
+                  <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editRoomModal"><i class="fas fa-edit"></i></button>
+                  <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="fas fa-trash"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td>Double</td>
+                <td><span class="badge bg-danger">Occupied</span></td>
+                <td>$120</td>
+                <td>
+                  <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editRoomModal"><i class="fas fa-edit"></i></button>
+                  <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="fas fa-trash"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td>Suite</td>
+                <td><span class="badge bg-primary">Maintenance</span></td>
+                <td>$200</td>
+                <td>
+                  <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editRoomModal"><i class="fas fa-edit"></i></button>
+                  <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="fas fa-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <footer class="text-center mt-5 text-muted">
+          &copy; 2025 Hotel Admin Dashboard. All rights reserved.
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add Room Modal -->
+  <div class="modal fade" id="addRoomModal" tabindex="-1" aria-labelledby="addRoomModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addRoomModalLabel">Add New Room</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Room Number</label>
+            <input type="text" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Room Type</label>
+            <input type="text" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Status</label>
+            <select class="form-select" required>
+              <option>Available</option>
+              <option>Occupied</option>
+              <option>Maintenance</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" class="form-control" required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-pink">Add Room</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Room Modal -->
+  <div class="modal fade" id="editRoomModal" tabindex="-1" aria-labelledby="editRoomModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editRoomModalLabel">Edit Room</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Same form fields as Add Room -->
+          <div class="mb-3">
+            <label class="form-label">Room Number</label>
+            <input type="text" class="form-control" value="101" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Room Type</label>
+            <input type="text" class="form-control" value="Single" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Status</label>
+            <select class="form-select" required>
+              <option selected>Available</option>
+              <option>Occupied</option>
+              <option>Maintenance</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" class="form-control" value="80" required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-warning">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this room?
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

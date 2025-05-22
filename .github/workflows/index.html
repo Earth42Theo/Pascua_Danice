@@ -1,0 +1,186 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+      :root {
+        --pink: #d95f76;
+        --light-pink: #ffe3e9;
+        --dark-pink: #f4a8b1;
+        --white: #ffffff;
+        --gray: #f8f9fa;
+      }
+      body {
+        background-color: var(--gray);
+        font-family: 'Segoe UI', sans-serif;
+      }
+      
+      .sidebar {
+        background-color: var(--pink);
+        min-height: 100vh;
+        color: white;
+      }
+      .sidebar a {
+        color: white;
+        text-decoration: none;
+      }
+      .sidebar a:hover {
+        background-color: var(--dark-pink);
+      }
+      .card {
+        border: none;
+        border-radius: 1rem;
+      }
+      .card-header {
+        background-color: var(--light-pink);
+        font-weight: bold;
+      }
+      .navbar {
+        background-color: var(--  );
+        border-bottom: 1px solid #ddd;
+      }
+      .highlight-card {
+        background-color: var(--pink);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-2 d-none d-md-block sidebar py-4">
+          <div class="text-center mb-4">
+            <h4><i class="fas fa-hotel me-2"></i>Hotel Admin</h4>
+          </div>
+          <ul class="nav flex-column px-3">
+            
+            <li class="nav-item mb-2">
+              <a class="nav-link active" href="index.html"><i class="fas fa-bed me-2"></i>Dashboard</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link" href="room.html"><i class="fas fa-bed me-2"></i>Room Module</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link" href="amenities.html"><i class="fas fa-spa me-2"></i>Amenities Module</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link" href="transaction.html"><i class="fas fa-credit-card me-2"></i>Transaction Module</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-10 ms-sm-auto col-lg-10 px-md-5 py-4">
+          <nav class="navbar mb-4">
+            <span class="navbar-brand mb-0 h1">Dashboard</span>
+            <div>
+              <button class="btn btn-outline-pink text-pink"><i class="fas fa-user-circle"></i> Admin</button>
+            </div>
+          </nav>
+
+          <!-- Stats Cards -->
+<div class="row g-4 mb-4">
+  <div class="col-md-4">
+    <a href="room.html" class="text-decoration-none">
+      <div class="card highlight-card">
+        <div class="card-body">
+          <h5 class="card-title">Total Rooms</h5>
+          <h2>120</h2>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-md-4">
+    <a href="room.html" class="text-decoration-none">
+      <div class="card highlight-card">
+        <div class="card-body">
+          <h5 class="card-title">Occupied Rooms</h5>
+          <h2>87</h2>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-md-4">
+    <a href="transaction.html" class="text-decoration-none">
+      <div class="card highlight-card">
+        <div class="card-body">
+          <h5 class="card-title">Total Revenue</h5>
+          <h2>$42,300</h2>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- Detailed Section -->
+<div class="row g-4">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">Recent Bookings</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Room 201 - Danice Angelica Joy P. Pascua - 3 nights</li>
+        <li class="list-group-item">Room 105 - Timothy Adam C. Sula - 1 night</li>
+        <li class="list-group-item">Room 307 - Alice Brown - 2 nights</li>
+        <li class="list-group-item">Room 402 - Miguel A. Ramirez - 5 nights</li>
+        <li class="list-group-item">Room 118 - Sophia M. Cruz - 4 nights</li>
+        <li class="list-group-item">Room 225 - Jeremiah V. Santos - 2 nights</li>
+        <li class="list-group-item">Room 308 - Lara K. Gomez - 1 night</li>
+        <li class="list-group-item">Room 109 - Carla D. Enriquez - 3 nights</li>
+        <li class="list-group-item">Room 314 - Enzo L. Dela Cruz - 2 nights</li>
+        <li class="list-group-item">Room 210 - Angelica M. Javier - 6 nights</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <a href="amenities.html" class="text-decoration-none">
+      <div class="card">
+        <div class="card-header">Top Amenities Used</div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Spa</li>
+          <li class="list-group-item">Swimming Pool</li>
+          <li class="list-group-item">Room Service</li>
+          <li class="list-group-item">Fitness Center</li>
+          <li class="list-group-item">Free Wi-Fi</li>
+          <li class="list-group-item">Mini Bar</li>
+          <li class="list-group-item">Laundry Service</li>
+          <li class="list-group-item">Airport Shuttle</li>
+          <li class="list-group-item">Massage Therapy</li>
+          <li class="list-group-item">Breakfast Buffet</li>
+        </ul>
+      </div>
+    </a>
+  </div>
+</div>
+  
+
+          <footer class="text-center mt-5 text-muted">
+            &copy; 2025 Hotel Admin Dashboard. All rights reserved.
+          </footer>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const currentPath = window.location.pathname.split('/').pop(); // get filename
+    const navLinks = document.querySelectorAll('.sidebar .nav-link');
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPath) {
+        link.classList.add('active');
+        link.style.backgroundColor = 'var(--dark-pink)';
+      } else {
+        link.classList.remove('active');
+        link.style.backgroundColor = '';
+      }
+    });
+  });
+</script>
+  </body>
+  </html>

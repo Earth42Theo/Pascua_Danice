@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Transaction Module - Hotel Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+--pink: #d95f76;
+      --light-pink: #ffe3e9;
+      --dark-pink: #f4a8b1;
+      --white: #ffffff;
+      --gray: #f8f9fa;
+    }
+    body {
+      background-color: var(--gray);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .sidebar {
+      background-color: var(--pink);
+      min-height: 100vh;
+      color: white;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: var(--dark-pink);
+    }
+    .navbar {
+      background-color: var(--white);
+      border-bottom: 1px solid #ddd;
+    }
+    .btn-pink {
+      background-color: var(--pink);
+      color: white;
+    }
+    .btn-pink:hover {
+      background-color: var(--dark-pink);
+      color: white;
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: var(--light-pink);
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-2 d-none d-md-block sidebar py-4">
+          <div class="text-center mb-4">
+            <h4><i class="fas fa-hotel me-2"></i>Hotel Admin</h4>
+          </div>
+          <ul class="nav flex-column px-3">
+            
+            <li class="nav-item mb-2">
+              <a class="nav-link active" href="index.html"><i class="fas fa-bed me-2"></i>Dashboard</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link" href="room.html"><i class="fas fa-bed me-2"></i>Room Module</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link" href="amenities.html"><i class="fas fa-spa me-2"></i>Amenities Module</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link" href="transaction.html"><i class="fas fa-credit-card me-2"></i>Transaction Module</a>
+            </li>
+          </ul>
+        </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-10 ms-sm-auto col-lg-10 px-md-5 py-4">
+        <nav class="navbar mb-4">
+          <span class="navbar-brand mb-0 h1">Transaction Module</span>
+          <button class="btn btn-outline-secondary"><i class="fas fa-user-circle"></i> Admin</button>
+        </nav>
+
+        <!-- Add Transaction Button -->
+        <div class="mb-3 d-flex justify-content-between">
+          <h4>Manage Transactions</h4>
+          <button class="btn btn-pink"><i class="fas fa-plus"></i> Add Transaction</button>
+        </div>
+
+        <!-- Transactions Table -->
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Transaction ID</th>
+                <th>Guest Name</th>
+                <th>Room</th>
+                <th>Total Amount</th>
+                <th>Payment Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>Danice Angelica Joy P. Pascua</td>
+                <td>102</td>
+                <td>₱6,000</td>
+                <td><span class="badge bg-success">Paid</span></td>
+                <td>2025-05-21</td>
+
+              </tr>
+              <tr>
+                <td>002</td>
+                <td>Mark Dela Cruz</td>
+                <td>205</td>
+                <td>₱12,000</td>
+                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                <td>2025-05-22</td>
+              </tr>
+              <tr>
+                <td>003</td>
+                <td>Timothy Adam C. Sula</td>
+                <td>102</td>
+                <td>₱6,000</td>
+                <td><span class="badge bg-success">Paid</span></td>
+                <td>2025-05-21</td>
+              </tr>
+
+              <tr>
+                <td>004</td>
+                <td>Jane Smith</td>
+                <td>102</td>
+                <td>₱6,000</td>
+                <td><span class="badge bg-success">Paid</span></td>
+                <td>2025-05-21</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <footer class="text-center mt-5 text-muted">
+          &copy; 2025 Hotel Admin Dashboard. All rights reserved.
+        </footer>
+      </main>
+    </div>
+  </div>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const currentPath = window.location.pathname.split('/').pop(); // get filename
+    const navLinks = document.querySelectorAll('.sidebar .nav-link');
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPath) {
+        link.classList.add('active');
+        link.style.backgroundColor = 'var(--dark-pink)';
+      } else {
+        link.classList.remove('active');
+        link.style.backgroundColor = '';
+      }
+    });
+  });
+</script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
