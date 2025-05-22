@@ -1,0 +1,72 @@
+  :root {
+    --pink: #d95f76;
+    --light-pink: #ffe3e9;
+    --dark-pink: #f4a8b1;
+    --white: #ffffff;
+    --gray: #f8f9fa;
+  }
+
+  body {
+    background-color: var(--gray);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .sidebar {
+    background-color: var(--pink);
+    min-height: 100vh;
+    color: white;
+  }
+
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .sidebar a i {
+    transition: color 0.3s ease;
+  }
+
+  .sidebar a:hover {
+    background-color: var(--dark-pink);
+    padding-left: 25px; /* subtle slide effect */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    color: var(--white);
+  }
+
+  .sidebar a:hover i {
+    color: var(--white);
+  }
+
+  .sidebar a.active {
+    background-color: var(--dark-pink);
+    box-shadow: inset 4px 0 0 0 var(--white);
+    font-weight: 600;
+    padding-left: 25px;
+  }
+
+  .card {
+    border: none;
+    border-radius: 1rem;
+  }
+
+  .card-header {
+    background-color: var(--light-pink);
+    font-weight: bold;
+  }
+
+  .navbar {
+    border-bottom: 1px solid #ddd;
+    /* Add background-color if needed, for example:
+    background-color: var(--white); */
+  }
+
+  .highlight-card {
+    background-color: var(--pink);
+    color: white;
+  }
